@@ -102,16 +102,21 @@ Apollo Healthcare Connect addresses critical inefficiencies in healthcare appoin
 
 ```
 Apollo-Healthcare-Connect/
-├── app.py                       # Development server
-├── app_production.py            # Production deployment
-├── requirements.txt             # Dependencies
-├── templates/                   # Web interface templates
-├── static/                      # Frontend assets
-├── burn_ensemble_models/        # 5-model ensemble weights
-├── pytorch_model_outputs/       # 8-class PyTorch model
-├── data/                        # Sample datasets
-├── utils/                       # Preprocessing utilities
-└── README.md                    # This file
+├── app.py                          # Development server
+├── app_production.py               # Production deployment
+├── medical_classifier_training.py  # Model training script
+├── symptom_classifier.py           # Symptom text classifier
+├── requirements.txt                # Dependencies
+├── templates/                      # Web interface templates
+├── notebooks/                      # Training and analysis notebooks
+│   ├── 01_burn_classification.ipynb
+│   ├── 02_kaggle_data_processing.ipynb
+│   ├── 03_burn_ensemble_oversample.ipynb
+│   ├── 04_medical_image_classification.ipynb
+│   ├── 05_text_data_preparation.ipynb
+│   └── 06_text_model_training.ipynb
+├── model_card.md                   # Model documentation
+└── README.md                       # This file
 ```
 
 ---
@@ -156,7 +161,7 @@ gunicorn --bind 0.0.0.0:5000 app_production:app
 
 ---
 
-## ⚠ **Important Disclaimers**
+## Important Disclaimers
 
 - **Educational Purpose:** This system was developed as a data science capstone project
 - **Not Medical Advice:** Results are for demonstration and research purposes only
