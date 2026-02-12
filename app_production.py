@@ -19,7 +19,7 @@ from albumentations.pytorch import ToTensorV2
 import timm
 
 app = Flask(__name__)
-app.secret_key = 'apollo_secret_123'
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'dev-only-change-in-production')
 
 # S3 Configuration
 BUCKET_NAME = "apollohealthcare-models-1753643145"

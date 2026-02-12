@@ -15,7 +15,7 @@ from werkzeug.utils import secure_filename
 import requests
 
 app = Flask(__name__)
-app.secret_key = 'apollo_secret_123'  # Replace with a secure key
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'dev-only-change-in-production')
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
